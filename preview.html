@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prévisualisation | CV</title>
+    <!-- Fonts same as main -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;800&family=Lora:wght@400;600&family=Roboto+Slab:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/templates.css" />
+    <style>
+      /* Print styles */
+      @page { size: A4; margin: 12mm; }
+      @media print {
+        body { background: white !important; }
+        .print-controls { display: none !important; }
+        .sheet { box-shadow: none !important; margin: 0 !important; }
+      }
+      body { background: #f3f4f6; }
+      .sheet { width: 210mm; min-height: 297mm; margin: 12mm auto; background: white; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 8px 30px rgba(0,0,0,.08); }
+    </style>
+  </head>
+  <body>
+    <div class="print-controls" style="padding:12px; display:flex; gap:8px; justify-content:center;">
+      <button id="btnPrint" class="btn primary">Imprimer / PDF</button>
+      <select id="pageSizeSelect">
+        <option value="A4" selected>A4</option>
+        <option value="Letter">US Letter</option>
+      </select>
+    </div>
+    <div id="printTarget" class="sheet"></div>
+
+    <script type="module">
+      import { renderTemplateHtml, getTemplatePath } from './assets/js/templates.js';
+
+      const printTarget = document.getElementById('printTarget');
+      const pageSizeSelect = document.getElementById('pageSizeSelect');
+      const btnPrint = document.getElementById('btnPrint');
+      let currentData = null;
+
+      function applyPageSize(size){
+        const style = document.createElement('style');
+        style.id = 'page-size-style';
+        style.textContent = `@page { size: ${size}; margin: 12mm; }`;
+        document.getElementById('page-size-style')?.remove();
+        document.head.appendChild(style);
+      }
+
+      window.addEventListener('message', async (ev) => {
+        if(!ev.data || ev.data.type !== 'loadCv') return;
+        const cvData = ev.data.data;
+        currentData = cvData;
+        applyPageSize(cvData?.meta?.pageSize || 'A4');
+        pageSizeSelect.value = cvData?.meta?.pageSize || 'A4';
+        const tplId = cvData?.meta?.template || 'template-01';
+        const tplPath = getTemplatePath(tplId);
+        const tpl = await fetch(tplPath).then(r => r.text());
+        const html = await renderTemplateHtml(tpl, cvData, { printable: true });
+        printTarget.innerHTML = html;
+        document.body.style.fontFamily = cvData?.meta?.fontFamily || 'Inter, system-ui, sans-serif';
+        document.documentElement.dataset.theme = (cvData?.meta?.theme || 'light');
+      });
+
+      pageSizeSelect.addEventListener('change', () => {
+        applyPageSize(pageSizeSelect.value);
+      });
+
+      btnPrint.addEventListener('click', () => window.print());
+
+      // If opened directly for test, try to load draft from localStorage
+      window.addEventListener('DOMContentLoaded', async () => {
+        if(!currentData){
+          try{
+            const raw = localStorage.getItem('cvDraft');
+            if(raw){
+              const cvData = JSON.parse(raw);
+              window.postMessage({ type: 'loadCv', data: cvData }, '*');
+            }
+          }catch(e){/* noop */}
+        }
+      });
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Générateur de CV statique — 12 templates modernes, export PDF/DOCX, 100% client-side." />
+    <meta property="og:title" content="Générateur de CV — 12 templates" />
+    <meta property="og:description" content="Remplissez, prévisualisez, exportez en PDF/DOCX. Déployable sur GitHub Pages." />
+    <title data-i18n="meta.title">Générateur de CV — 12 templates</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;800&family=Lora:wght@400;600&family=Roboto+Slab:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/templates.css" />
+  </head>
+  <body>
+    <!-- ✨ Écran de chargement élégant -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">
+        <div data-i18n="loading.text">Chargement de votre générateur de CV...</div>
+        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 8px;" data-i18n="loading.subtitle">Préparation des templates</div>
+      </div>
+    </div>
+
+    <header class="container header">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg>
+        <h1 class="app-title" data-i18n="app.title">Générateur de CV</h1>
+      </div>
+      <div class="toolbar">
+        <select id="langSelect" aria-label="Langue" title="Langue">
+          <option value="fr" selected>Français</option>
+          <option value="en">English</option>
+        </select>
+        <button id="btnLoadSample" class="btn ghost" data-i18n="buttons.loadSample">Charger un exemple</button>
+        <button id="btnClearAll" class="btn warn" data-i18n="buttons.clearAll">Tout effacer</button>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <section class="wizard" role="region" aria-label="Assistant de création de CV">
+        <!-- Progress -->
+        <div class="progress">
+          <div class="progress-bar" id="progressBar" style="width: 10%"></div>
+          <div class="progress-info"><span id="stepIndicator">1</span> / <span id="stepTotal">8</span></div>
+        </div>
+
+        <!-- Steps -->
+        <form id="cvForm" novalidate>
+          <!-- Step 1: Personal -->
+          <section class="step" data-step="1" role="region" aria-labelledby="step1Title">
+            <h2 id="step1Title" data-i18n="steps.personal">Informations personnelles</h2>
+            <div class="grid-2">
+              <div class="field">
+                <label for="firstName" data-i18n="fields.firstName">Prénom</label>
+                <input id="firstName" name="firstName" type="text" required aria-required="true" />
+              </div>
+              <div class="field">
+                <label for="lastName" data-i18n="fields.lastName">Nom</label>
+                <input id="lastName" name="lastName" type="text" required aria-required="true" />
+              </div>
+              <div class="field">
+                <label for="title" data-i18n="fields.title">Titre</label>
+                <input id="title" name="title" type="text" />
+              </div>
+              <div class="field">
+                <label for="email" data-i18n="fields.email">E-mail</label>
+                <input id="email" name="email" type="email" />
+              </div>
+              <div class="field">
+                <label for="phone" data-i18n="fields.phone">Téléphone</label>
+                <input id="phone" name="phone" type="text" />
+              </div>
+              <div class="field">
+                <label for="location" data-i18n="fields.location">Localisation</label>
+                <input id="location" name="location" type="text" />
+              </div>
+              <div class="field">
+                <label for="website" data-i18n="fields.website">Site web</label>
+                <input id="website" name="website" type="url" />
+              </div>
+              <div class="field">
+                <label for="linkedin">LinkedIn</label>
+                <input id="linkedin" name="linkedin" type="url" />
+              </div>
+              <div class="field">
+                <label for="photo" data-i18n="fields.photo">Photo</label>
+                <input id="photo" name="photo" type="file" accept="image/*" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 2: Summary -->
+          <section class="step" data-step="2" role="region" aria-labelledby="step2Title" hidden>
+            <h2 id="step2Title" data-i18n="steps.summary">Résumé / Accroche</h2>
+            <div class="field">
+              <label for="summary" data-i18n="fields.summary">Résumé</label>
+              <textarea id="summary" name="summary" rows="5"></textarea>
+            </div>
+          </section>
+
+          <!-- Step 3: Experience -->
+          <section class="step" data-step="3" role="region" aria-labelledby="step3Title" hidden>
+            <h2 id="step3Title" data-i18n="steps.experience">Expériences</h2>
+            <div id="experienceList" class="repeat-list"></div>
+            <button type="button" class="btn ghost" id="btnAddExperience" data-i18n="buttons.addExperience">Ajouter une expérience</button>
+          </section>
+
+          <!-- Step 4: Education -->
+          <section class="step" data-step="4" role="region" aria-labelledby="step4Title" hidden>
+            <h2 id="step4Title" data-i18n="steps.education">Éducation</h2>
+            <div id="educationList" class="repeat-list"></div>
+            <button type="button" class="btn ghost" id="btnAddEducation" data-i18n="buttons.addEducation">Ajouter une formation</button>
+          </section>
+
+          <!-- Step 5: Skills -->
+          <section class="step" data-step="5" role="region" aria-labelledby="step5Title" hidden>
+            <h2 id="step5Title" data-i18n="steps.skills">Compétences</h2>
+            <div class="field">
+              <label for="skillsInput" data-i18n="fields.skills">Compétences (séparées par des virgules)</label>
+              <input id="skillsInput" type="text" placeholder="Ex: Calcul structurel, Revit, Flutter" />
+            </div>
+          </section>
+
+          <!-- Step 6: Langues, Certifs, Projets, Références -->
+          <section class="step" data-step="6" role="region" aria-labelledby="step6Title" hidden>
+            <h2 id="step6Title" data-i18n="steps.other">Langues, Certifications, Projets, Références</h2>
+            <div class="grid-2">
+              <div>
+                <h3 data-i18n="sections.languages">Langues</h3>
+                <div id="languagesList" class="repeat-list"></div>
+                <button type="button" class="btn small" id="btnAddLanguage" data-i18n="buttons.addLanguage">Ajouter une langue</button>
+              </div>
+              <div>
+                <h3 data-i18n="sections.certifications">Certifications</h3>
+                <div id="certificationsList" class="repeat-list"></div>
+                <button type="button" class="btn small" id="btnAddCertification" data-i18n="buttons.addCertification">Ajouter une certification</button>
+              </div>
+              <div>
+                <h3 data-i18n="sections.projects">Projets</h3>
+                <div id="projectsList" class="repeat-list"></div>
+                <button type="button" class="btn small" id="btnAddProject" data-i18n="buttons.addProject">Ajouter un projet</button>
+              </div>
+              <div>
+                <h3 data-i18n="sections.references">Références</h3>
+                <div id="referencesList" class="repeat-list"></div>
+                <button type="button" class="btn small" id="btnAddReference" data-i18n="buttons.addReference">Ajouter une référence</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 7: Settings / Template -->
+          <section class="step" data-step="7" role="region" aria-labelledby="step7Title" hidden>
+            <h2 id="step7Title" data-i18n="steps.settings">Paramètres visuels</h2>
+            <div class="grid-3">
+              <div class="field">
+                <label for="templateSelect" data-i18n="fields.template">Template</label>
+                <select id="templateSelect"></select>
+              </div>
+              <div class="field">
+                <label for="themeSelect" data-i18n="fields.theme">Thème</label>
+                <select id="themeSelect">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fontFamily" data-i18n="fields.font">Typographie</label>
+                <select id="fontFamily">
+                  <option value="Inter, system-ui, sans-serif">Inter</option>
+                  <option value="Poppins, system-ui, sans-serif">Poppins</option>
+                  <option value="Lora, serif">Lora</option>
+                  <option value="Roboto Slab, serif">Roboto Slab</option>
+                  <option value="Merriweather, serif">Merriweather</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="pageSize" data-i18n="fields.pageSize">Taille de page</label>
+                <select id="pageSize">
+                  <option value="A4">A4</option>
+                  <option value="Letter">US Letter</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="palette" data-i18n="fields.palette">Palette</label>
+                <select id="palette"></select>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-i18n="templates.gallery">Galerie des 12 templates</h3>
+              <div id="templateGallery" class="template-gallery" aria-live="polite"></div>
+            </div>
+          </section>
+
+          <!-- Step 8: Preview & Export -->
+          <section class="step" data-step="8" role="region" aria-labelledby="step8Title" hidden>
+            <h2 id="step8Title" data-i18n="steps.preview">Prévisualisation & Export</h2>
+            <div class="actions">
+              <button type="button" class="btn primary" id="btnDownloadPDF" data-i18n="buttons.downloadPdf">Télécharger PDF</button>
+              <button type="button" class="btn" id="btnDownloadDOCX" data-i18n="buttons.downloadDocx">Télécharger DOCX</button>
+              <button type="button" class="btn" id="btnExportJSON" data-i18n="buttons.exportJson">Exporter JSON</button>
+              <label class="btn file">
+                <input type="file" id="btnImportJSON" accept="application/json" hidden />
+                <span data-i18n="buttons.importJson">Importer JSON</span>
+              </label>
+            </div>
+          </section>
+
+          <!-- Nav buttons -->
+          <div class="nav">
+            <button type="button" id="btnPrev" class="btn" data-i18n="buttons.prev">Précédent</button>
+            <button type="button" id="btnNext" class="btn primary" data-i18n="buttons.next">Continuer</button>
+            <button type="button" id="btnSave" class="btn ghost" data-i18n="buttons.save">Sauvegarder</button>
+            <button type="reset" id="btnReset" class="btn warn" data-i18n="buttons.reset">Réinitialiser</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview-pane" aria-label="Prévisualisation" aria-live="polite">
+        <div class="preview-toolbar">
+          <span data-i18n="preview.live">Prévisualisation en direct</span>
+          <button type="button" class="btn small" id="btnRefreshPreview" data-i18n="buttons.refresh">Rafraîchir</button>
+        </div>
+        <div id="preview" class="cv-preview"></div>
+      </aside>
+    </main>
+
+    <div id="toast" role="status" aria-live="polite" class="toast" hidden>Brouillon sauvegardé</div>
+
+    <!-- Libraries for export fallback and DOCX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js" crossorigin="anonymous"></script>
+
+    <!-- App scripts -->
+    <script type="module" src="./assets/js/templates.js"></script>
+    <script type="module" src="./assets/js/export.js"></script>
+    <script type="module" src="./assets/js/i18n.js"></script>
+    <script type="module" src="./assets/js/wizard.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/animations.js"></script>
+    <script type="module" src="./assets/js/notifications.js"></script>
+  </body>
+</html>
