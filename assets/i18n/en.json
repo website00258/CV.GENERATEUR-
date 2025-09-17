@@ -1,0 +1,63 @@
+{
+  "meta": { "title": "CV Generator — 12 templates" },
+  "app": { "title": "CV Generator" },
+  "loading": {
+    "text": "Loading your CV generator...",
+    "subtitle": "Preparing templates"
+  },
+  "buttons": {
+    "loadSample": "Load sample",
+    "clearAll": "Clear all",
+    "addExperience": "Add experience",
+    "addEducation": "Add education",
+    "addLanguage": "Add language",
+    "addCertification": "Add certification",
+    "addProject": "Add project",
+    "addReference": "Add reference",
+    "prev": "Back",
+    "next": "Continue",
+    "save": "Save",
+    "reset": "Reset",
+    "downloadPdf": "Download PDF",
+    "downloadDocx": "Download DOCX",
+    "exportJson": "Export JSON",
+    "importJson": "Import JSON",
+    "select": "Select"
+  },
+  "steps": {
+    "personal": "Personal information",
+    "summary": "Summary",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "other": "Languages, Certifications, Projects, References",
+    "settings": "Visual settings",
+    "preview": "Preview & Export"
+  },
+  "fields": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "title": "Title",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "website": "Website",
+    "photo": "Photo",
+    "summary": "Summary",
+    "template": "Template",
+    "theme": "Theme",
+    "font": "Typography",
+    "pageSize": "Page size",
+    "palette": "Palette"
+  },
+  "sections": {
+    "languages": "Languages",
+    "certifications": "Certifications",
+    "projects": "Projects",
+    "references": "References"
+  },
+  "templates": {
+    "gallery": "12 Templates Gallery"
+  },
+  "preview": { "live": "Live preview" }
+}

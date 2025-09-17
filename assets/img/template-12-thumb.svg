@@ -1,0 +1,157 @@
+<svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGrad12" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a202c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a5568;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad12" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53e3e;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#dd6b20;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d69e2e;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#38a169;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="compGrad12" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a202c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e53e3e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="200" height="280" fill="#f8fafc"/>
+  
+  <!-- Header corporatif -->
+  <rect x="0" y="0" width="200" height="70" fill="url(#headerGrad12)"/>
+  
+  <!-- Decoration lines colorées -->
+  <rect x="0" y="0" width="200" height="3" fill="url(#accentGrad12)"/>
+  
+  <!-- Lignes géométriques décoratives -->
+  <rect x="150" y="15" width="40" height="1" fill="#ffffff" opacity="0.2" transform="rotate(45 170 15)"/>
+  <rect x="160" y="25" width="30" height="1" fill="#ffffff" opacity="0.1" transform="rotate(-30 175 25)"/>
+  <rect x="170" y="35" width="20" height="1" fill="#ffffff" opacity="0.15" transform="rotate(60 180 35)"/>
+  
+  <!-- Profile Section -->
+  <rect x="15" y="15" width="20" height="20" fill="#e53e3e" rx="2"/>
+  <rect x="45" y="15" width="80" height="8" fill="#ffffff" rx="2"/>
+  <rect x="45" y="27" width="60" height="5" fill="#e53e3e" rx="2"/>
+  
+  <!-- Contact info corporatif -->
+  <rect x="45" y="40" width="40" height="3" fill="#ffffff" opacity="0.9" rx="1"/>
+  <rect x="90" y="40" width="35" height="3" fill="#ffffff" opacity="0.9" rx="1"/>
+  <rect x="45" y="46" width="50" height="3" fill="#ffffff" opacity="0.9" rx="1"/>
+  <rect x="100" y="46" width="30" height="3" fill="#ffffff" opacity="0.9" rx="1"/>
+  
+  <!-- Executive Summary -->
+  <rect x="0" y="70" width="200" height="40" fill="#ffffff"/>
+  <rect x="15" y="70" width="15" height="2" fill="url(#accentGrad12)"/>
+  <rect x="15" y="80" width="120" height="6" fill="#1a202c" rx="2"/>
+  <rect x="15" y="90" width="170" height="3" fill="#4a5568" opacity="0.7" rx="1"/>
+  <rect x="15" y="95" width="160" height="3" fill="#4a5568" opacity="0.7" rx="1"/>
+  <rect x="15" y="100" width="140" height="3" fill="#4a5568" opacity="0.7" rx="1"/>
+  
+  <!-- Main Content Grid -->
+  
+  <!-- Left Column - Core Competencies -->
+  <rect x="0" y="110" width="85" height="170" fill="#f7fafc"/>
+  <rect x="84" y="110" width="1" height="170" fill="#e2e8f0"/>
+  
+  <!-- Core Competencies Section -->
+  <rect x="10" y="120" width="65" height="5" fill="#1a202c" rx="2"/>
+  <rect x="10" y="127" width="65" height="1" fill="url(#accentGrad12)"/>
+  
+  <!-- Competency Items */
+  <rect x="10" y="135" width="65" height="12" fill="#ffffff" stroke="#e53e3e" stroke-width="0" stroke-dasharray="4 0 0 0" rx="4"/>
+  <rect x="13" y="139" width="35" height="2" fill="#1a202c" rx="1"/>
+  <rect x="55" y="139" width="8" height="2" fill="#e53e3e" rx="1"/>
+  <rect x="13" y="142" width="45" height="2" fill="#e2e8f0" rx="1"/>
+  <rect x="13" y="142" width="35" height="2" fill="url(#accentGrad12)" rx="1"/>
+  
+  <rect x="10" y="152" width="65" height="12" fill="#ffffff" stroke="#e53e3e" stroke-width="0" stroke-dasharray="4 0 0 0" rx="4"/>
+  <rect x="13" y="156" width="30" height="2" fill="#1a202c" rx="1"/>
+  <rect x="55" y="156" width="8" height="2" fill="#e53e3e" rx="1"/>
+  <rect x="13" y="159" width="45" height="2" fill="#e2e8f0" rx="1"/>
+  <rect x="13" y="159" width="40" height="2" fill="url(#accentGrad12)" rx="1"/>
+  
+  <!-- Key Achievements -->
+  <rect x="10" y="175" width="65" height="5" fill="#1a202c" rx="2"/>
+  <rect x="10" y="182" width="65" height="1" fill="url(#accentGrad12)"/>
+  
+  <rect x="10" y="190" width="65" height="8" fill="#ffffff" rx="4"/>
+  <rect x="13" y="193" width="3" height="2" fill="#e53e3e" rx="1"/>
+  <rect x="18" y="193" width="50" height="2" fill="#4a5568" rx="1"/>
+  
+  <rect x="10" y="202" width="65" height="8" fill="#ffffff" rx="4"/>
+  <rect x="13" y="205" width="3" height="2" fill="#e53e3e" rx="1"/>
+  <rect x="18" y="205" width="45" height="2" fill="#4a5568" rx="1"/>
+  
+  <!-- Languages -->
+  <rect x="10" y="220" width="65" height="5" fill="#1a202c" rx="2"/>
+  <rect x="10" y="227" width="65" height="1" fill="url(#accentGrad12)"/>
+  
+  <rect x="10" y="235" width="65" height="10" fill="#ffffff" rx="4"/>
+  <rect x="13" y="238" width="25" height="2" fill="#1a202c" rx="1"/>
+  <rect x="13" y="241" width="30" height="2" fill="#e2e8f0" rx="1"/>
+  <rect x="13" y="241" width="25" height="2" fill="url(#accentGrad12)" rx="1"/>
+  <rect x="50" y="241" width="20" height="2" fill="#e53e3e" rx="1"/>
+  
+  <!-- Certification Badge -->
+  <rect x="10" y="252" width="65" height="15" fill="url(#compGrad12)" rx="5"/>
+  <rect x="20" y="257" width="45" height="2" fill="#ffffff" rx="1"/>
+  <rect x="15" y="261" width="25" height="1" fill="#ffffff" opacity="0.8" rx="1"/>
+  <rect x="45" y="261" width="15" height="1" fill="#ffffff" opacity="0.8" rx="1"/>
+  
+  <!-- Right Column - Professional Experience -->
+  <rect x="85" y="110" width="115" height="170" fill="#ffffff"/>
+  
+  <!-- Experience Section -->
+  <rect x="95" y="120" width="95" height="5" fill="#1a202c" rx="2"/>
+  <rect x="95" y="127" width="95" height="1" fill="url(#accentGrad12)"/>
+  
+  <!-- Experience Item 1 -->
+  <rect x="95" y="135" width="95" height="35" fill="#f8fafc" stroke="#e53e3e" stroke-width="0" stroke-dasharray="6 0 0 0" rx="6"/>
+  <circle cx="188" cy="145" r="3" fill="url(#accentGrad12)" opacity="0.3"/>
+  
+  <rect x="100" y="140" width="60" height="4" fill="#1a202c" rx="2"/>
+  <rect x="165" y="140" width="20" height="4" fill="url(#compGrad12)" rx="10"/>
+  <rect x="100" y="147" width="40" height="3" fill="#e53e3e" rx="1"/>
+  <rect x="145" y="147" width="25" height="3" fill="#718096" rx="1"/>
+  <rect x="100" y="152" width="80" height="2" fill="#4a5568" opacity="0.6" rx="1"/>
+  <rect x="100" y="156" width="75" height="2" fill="#4a5568" opacity="0.6" rx="1"/>
+  
+  <!-- Accomplishments */
+  <rect x="100" y="162" width="50" height="2" fill="#1a202c" rx="1"/>
+  <rect x="100" y="166" width="70" height="1" fill="#4a5568" opacity="0.5" rx="1"/>
+  
+  <!-- Experience Item 2 -->
+  <rect x="95" y="180" width="95" height="35" fill="#f8fafc" stroke="#e53e3e" stroke-width="0" stroke-dasharray="6 0 0 0" rx="6"/>
+  <circle cx="188" cy="190" r="3" fill="url(#accentGrad12)" opacity="0.3"/>
+  
+  <rect x="100" y="185" width="55" height="4" fill="#1a202c" rx="2"/>
+  <rect x="165" y="185" width="20" height="4" fill="url(#compGrad12)" rx="10"/>
+  <rect x="100" y="192" width="35" height="3" fill="#e53e3e" rx="1"/>
+  <rect x="140" y="192" width="30" height="3" fill="#718096" rx="1"/>
+  <rect x="100" y="197" width="85" height="2" fill="#4a5568" opacity="0.6" rx="1"/>
+  <rect x="100" y="201" width="70" height="2" fill="#4a5568" opacity="0.6" rx="1"/>
+  
+  <!-- Education Section -->
+  <rect x="95" y="225" width="95" height="5" fill="#1a202c" rx="2"/>
+  <rect x="95" y="232" width="95" height="1" fill="url(#accentGrad12)"/>
+  
+  <!-- Education Item -->
+  <rect x="95" y="240" width="95" height="18" fill="#ffffff" stroke="#e53e3e" stroke-width="0" stroke-dasharray="0 0 4 0" rx="5"/>
+  <rect x="100" y="245" width="50" height="3" fill="#1a202c" rx="1"/>
+  <rect x="155" y="245" width="15" height="3" fill="#1a202c" rx="10"/>
+  <rect x="100" y="250" width="40" height="2" fill="#e53e3e" rx="1"/>
+  
+  <!-- Footer with Professional Quote -->
+  <rect x="0" y="260" width="200" height="20" fill="url(#headerGrad12)"/>
+  <rect x="50" y="267" width="100" height="2" fill="#ffffff" opacity="0.9" rx="1"/>
+  <rect x="75" y="272" width="50" height="1" fill="url(#accentGrad12)" rx="1"/>
+  
+  <!-- Decorative corner elements -->
+  <circle cx="5" cy="115" r="1" fill="#e53e3e" opacity="0.6"/>
+  <circle cx="195" cy="115" r="1" fill="#e53e3e" opacity="0.6"/>
+  <circle cx="5" cy="255" r="1" fill="#e53e3e" opacity="0.6"/>
+  <circle cx="195" cy="255" r="1" fill="#e53e3e" opacity="0.6"/>
+</svg>

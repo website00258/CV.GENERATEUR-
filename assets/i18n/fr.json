@@ -1,0 +1,63 @@
+{
+  "meta": { "title": "Générateur de CV — 12 templates" },
+  "app": { "title": "Générateur de CV" },
+  "loading": {
+    "text": "Chargement de votre générateur de CV...",
+    "subtitle": "Préparation des templates"
+  },
+  "buttons": {
+    "loadSample": "Charger un exemple",
+    "clearAll": "Tout effacer",
+    "addExperience": "Ajouter une expérience",
+    "addEducation": "Ajouter une formation",
+    "addLanguage": "Ajouter une langue",
+    "addCertification": "Ajouter une certification",
+    "addProject": "Ajouter un projet",
+    "addReference": "Ajouter une référence",
+    "prev": "Précédent",
+    "next": "Continuer",
+    "save": "Sauvegarder",
+    "reset": "Réinitialiser",
+    "downloadPdf": "Télécharger PDF",
+    "downloadDocx": "Télécharger DOCX",
+    "exportJson": "Exporter JSON",
+    "importJson": "Importer JSON",
+    "select": "Sélectionner"
+  },
+  "steps": {
+    "personal": "Informations personnelles",
+    "summary": "Résumé / Accroche",
+    "experience": "Expériences",
+    "education": "Éducation",
+    "skills": "Compétences",
+    "other": "Langues, Certifications, Projets, Références",
+    "settings": "Paramètres visuels",
+    "preview": "Prévisualisation & Export"
+  },
+  "fields": {
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "title": "Titre",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "location": "Localisation",
+    "website": "Site web",
+    "photo": "Photo",
+    "summary": "Résumé",
+    "template": "Template",
+    "theme": "Thème",
+    "font": "Typographie",
+    "pageSize": "Taille de page",
+    "palette": "Palette"
+  },
+  "sections": {
+    "languages": "Langues",
+    "certifications": "Certifications",
+    "projects": "Projets",
+    "references": "Références"
+  },
+  "templates": {
+    "gallery": "Galerie des 12 templates"
+  },
+  "preview": { "live": "Prévisualisation en direct" }
+}
