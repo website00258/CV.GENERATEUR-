@@ -1,0 +1,21 @@
+<div class="template-04" style="font-family: inherit">
+  <div class="cv-root" data-palette="{{meta.palette}}">
+    <header class="cv-header" style="background: rgba(0,0,0,.04);">
+      <div>
+        <div class="cv-name">{{personal.firstName}} {{personal.lastName}}</div>
+        <div class="cv-title">{{personal.title}}</div>
+      </div>
+    </header>
+    <main class="cv-body">
+      <div class="cv-h2">Résumé</div>
+      <p>{{summary}}</p>
+      <div class="cv-h2">Expériences</div>
+      {{#each experience}}
+        <div>
+          <strong>{{jobTitle}}</strong> — {{company}} ({{startDate}} – {{endDate}})
+          <div>{{description}}</div>
+        </div>
+      {{/each}}
+    </main>
+  </div>
+</div>

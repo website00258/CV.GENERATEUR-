@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 11 - Compact Moderne</title>
+</head>
+<body>
+    <div class="cv-container template-11">
+        <!-- Header Compact avec Gradient -->
+        <header class="cv-header">
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1 class="name">{{prenom}} {{nom}}</h1>
+                    <div class="title">{{poste}}</div>
+                    <div class="contact-compact">
+                        <span class="contact-item">
+                            <i class="icon">✉</i>{{email}}
+                        </span>
+                        <span class="separator">•</span>
+                        <span class="contact-item">
+                            <i class="icon">📱</i>{{telephone}}
+                        </span>
+                        <span class="separator">•</span>
+                        <span class="contact-item">
+                            <i class="icon">📍</i>{{ville}}, {{pays}}
+                        </span>
+                    </div>
+                </div>
+                <div class="profile-photo">
+                    <div class="photo-frame">
+                        <img src="{{photo}}" alt="Photo de profil" class="photo">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content en Grille -->
+        <main class="cv-main">
+            <!-- Left Column - Information compacte -->
+            <div class="left-column">
+                <!-- Profile Summary -->
+                <section class="cv-section profile">
+                    <h2 class="section-title">
+                        <span class="title-icon">👤</span>
+                        Profil
+                    </h2>
+                    <div class="section-content">
+                        <p class="profile-text">{{profil}}</p>
+                    </div>
+                </section>
+
+                <!-- Skills compactes -->
+                <section class="cv-section skills">
+                    <h2 class="section-title">
+                        <span class="title-icon">⚡</span>
+                        Compétences
+                    </h2>
+                    <div class="section-content">
+                        <div class="skills-compact">
+                            {{#competences}}
+                            <div class="skill-chip">
+                                <span class="skill-name">{{nom}}</span>
+                                <div class="skill-dots">
+                                    <span class="dot filled" data-level="{{niveau}}"></span>
+                                    <span class="dot" data-level="{{niveau}}"></span>
+                                    <span class="dot" data-level="{{niveau}}"></span>
+                                    <span class="dot" data-level="{{niveau}}"></span>
+                                    <span class="dot" data-level="{{niveau}}"></span>
+                                </div>
+                            </div>
+                            {{/competences}}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Languages & Certifications combinées -->
+                <section class="cv-section languages">
+                    <h2 class="section-title">
+                        <span class="title-icon">🌐</span>
+                        Langues
+                    </h2>
+                    <div class="section-content">
+                        <div class="languages-compact">
+                            {{#langues}}
+                            <div class="language-item">
+                                <span class="language-name">{{nom}}</span>
+                                <span class="language-level">{{niveau}}</span>
+                            </div>
+                            {{/langues}}
+                        </div>
+                    </div>
+                </section>
+
+                {{#certifications}}
+                <section class="cv-section certifications">
+                    <h2 class="section-title">
+                        <span class="title-icon">🏆</span>
+                        Certifications
+                    </h2>
+                    <div class="section-content">
+                        <div class="certs-compact">
+                            {{#certifications}}
+                            <div class="cert-badge">
+                                <div class="cert-name">{{nom}}</div>
+                                <div class="cert-org">{{organisme}}</div>
+                            </div>
+                            {{/certifications}}
+                        </div>
+                    </div>
+                </section>
+                {{/certifications}}
+            </div>
+
+            <!-- Right Column - Expérience et Formation -->
+            <div class="right-column">
+                <!-- Experience avec timeline moderne -->
+                <section class="cv-section experience">
+                    <h2 class="section-title">
+                        <span class="title-icon">💼</span>
+                        Expérience professionnelle
+                    </h2>
+                    <div class="section-content">
+                        <div class="timeline-modern">
+                            {{#experiences}}
+                            <div class="timeline-item">
+                                <div class="timeline-marker">
+                                    <div class="marker-dot"></div>
+                                    <div class="marker-line"></div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="job-card">
+                                        <div class="job-header">
+                                            <h3 class="job-title">{{poste}}</h3>
+                                            <div class="job-meta">
+                                                <span class="company">{{entreprise}}</span>
+                                                <span class="period">{{dateDebut}} - {{dateFin}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="job-description">
+                                            <p>{{description}}</p>
+                                            {{#realisations}}
+                                            <ul class="achievements-compact">
+                                                <li>{{.}}</li>
+                                            </ul>
+                                            {{/realisations}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/experiences}}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education compacte -->
+                <section class="cv-section education">
+                    <h2 class="section-title">
+                        <span class="title-icon">🎓</span>
+                        Formation
+                    </h2>
+                    <div class="section-content">
+                        <div class="education-cards">
+                            {{#formations}}
+                            <div class="education-card">
+                                <div class="edu-header">
+                                    <h3 class="degree">{{diplome}}</h3>
+                                    <span class="year-badge">{{annee}}</span>
+                                </div>
+                                <div class="edu-meta">
+                                    <span class="school">{{etablissement}}</span>
+                                </div>
+                                {{#description}}
+                                <p class="edu-description">{{description}}</p>
+                                {{/description}}
+                            </div>
+                            {{/formations}}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects en grille -->
+                {{#projets}}
+                <section class="cv-section projects">
+                    <h2 class="section-title">
+                        <span class="title-icon">🚀</span>
+                        Projets
+                    </h2>
+                    <div class="section-content">
+                        <div class="projects-grid">
+                            {{#projets}}
+                            <div class="project-card">
+                                <h3 class="project-name">{{nom}}</h3>
+                                <div class="tech-stack">
+                                    {{#technologies}}
+                                    <span class="tech-tag">{{.}}</span>
+                                    {{/technologies}}
+                                </div>
+                                <p class="project-description">{{description}}</p>
+                            </div>
+                            {{/projets}}
+                        </div>
+                    </div>
+                </section>
+                {{/projets}}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

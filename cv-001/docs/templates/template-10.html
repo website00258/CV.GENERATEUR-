@@ -1,0 +1,113 @@
+<div class="template-10" style="font-family: inherit">
+  <div class="cv-root" data-palette="{{meta.palette}}" style="font-family: 'Lora', 'Georgia', serif; background: #fefefe; min-height: 297mm; position: relative;">
+    <!-- Elegant Magazine-Style Header -->
+    <header style="text-align: center; padding: 12mm 8mm 8mm 8mm; background: linear-gradient(135deg, #ecf0f1 0%, white 100%); border-bottom: 3px solid #2c3e50; position: relative;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #2c3e50, transparent);"></div>
+      
+      {{#if personal.photoBase64}}
+      <div style="margin-bottom: 6mm;">
+        <img src="{{personal.photoBase64}}" alt="Photo" style="width:50mm;height:50mm;object-fit:cover;border-radius:50%; border: 4px solid #2c3e50; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" />
+      </div>
+      {{/if}}
+      
+      <div style="font-family: 'Lora', serif; font-size: 28pt; font-weight: 400; color: #2c3e50; margin-bottom: 3mm; letter-spacing: 1px; line-height: 1.1;">{{personal.firstName}}</div>
+      <div style="font-family: 'Lora', serif; font-size: 28pt; font-weight: 700; color: #2c3e50; margin-bottom: 4mm; letter-spacing: 1px; line-height: 1.1;">{{personal.lastName}}</div>
+      <div style="font-size: 16pt; color: #34495e; font-weight: 400; font-style: italic; margin-bottom: 6mm; letter-spacing: 2px;">{{personal.title}}</div>
+      
+      <div style="display: flex; justify-content: center; gap: 8mm; font-size: 10pt; color: #34495e; flex-wrap: wrap;">
+        {{#if personal.email}}<div style="display: flex; align-items: center; gap: 2mm;"><span style="color: #2c3e50;">✉</span> {{personal.email}}</div>{{/if}}
+        {{#if personal.phone}}<div style="display: flex; align-items: center; gap: 2mm;"><span style="color: #2c3e50;">☎</span> {{personal.phone}}</div>{{/if}}
+        {{#if personal.location}}<div style="display: flex; align-items: center; gap: 2mm;"><span style="color: #2c3e50;">⌂</span> {{personal.location}}</div>{{/if}}
+        {{#if personal.website}}<div style="display: flex; align-items: center; gap: 2mm;"><span style="color: #2c3e50;">⊕</span> {{personal.website}}</div>{{/if}}
+      </div>
+    </header>
+    
+    <!-- Magazine-Style Multi-Column Layout -->
+    <div style="padding: 8mm; column-count: 2; column-gap: 8mm; column-rule: 1px solid #ecf0f1;">
+      {{#if summary}}
+      <section style="break-inside: avoid; margin-bottom: 8mm;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">À Propos</div>
+        <p style="font-size: 11pt; line-height: 1.7; text-align: justify; margin: 0; color: #34495e; text-indent: 4mm; font-style: italic;">{{summary}}</p>
+      </section>
+      {{/if}}
+      
+      {{#if experience}}
+      <section style="break-inside: avoid; margin-bottom: 8mm;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">Parcours Professionnel</div>
+        {{#each experience}}
+        <div style="margin-bottom: 6mm; break-inside: avoid;">
+          <div style="font-family: 'Lora', serif; font-weight: 700; font-size: 12pt; color: #2c3e50; margin-bottom: 1mm; font-style: italic;">{{jobTitle}}</div>
+          <div style="font-weight: 600; color: #34495e; font-size: 11pt; margin-bottom: 1mm; text-transform: uppercase; letter-spacing: 0.5px;">{{company}}{{#if location}} • {{location}}{{/if}}</div>
+          <div style="font-size: 9pt; color: #7f8c8d; margin-bottom: 2mm; font-style: italic; border-left: 2px solid #34495e; padding-left: 3mm;">{{startDate}} – {{#if current}}Présent{{else}}{{endDate}}{{/if}}</div>
+          {{#if description}}<div style="font-size: 10pt; line-height: 1.6; color: #2c3e50; text-align: justify;">{{description}}</div>{{/if}}
+        </div>
+        {{/each}}
+      </section>
+      {{/if}}
+      
+      {{#if education}}
+      <section style="break-inside: avoid; margin-bottom: 8mm;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">Formation Académique</div>
+        {{#each education}}
+        <div style="margin-bottom: 5mm; break-inside: avoid;">
+          <div style="font-family: 'Lora', serif; font-weight: 700; font-size: 11pt; color: #2c3e50; margin-bottom: 1mm; font-style: italic;">{{degree}}</div>
+          <div style="color: #34495e; font-weight: 600; font-size: 10pt; margin-bottom: 1mm; text-transform: uppercase; letter-spacing: 0.5px;">{{school}}{{#if location}} • {{location}}{{/if}}</div>
+          <div style="font-size: 9pt; color: #7f8c8d; font-style: italic; border-left: 2px solid #34495e; padding-left: 3mm;">{{startDate}} – {{endDate}}</div>
+          {{#if description}}<div style="font-size: 10pt; margin-top: 2mm; color: #2c3e50;">{{description}}</div>{{/if}}
+        </div>
+        {{/each}}
+      </section>
+      {{/if}}
+      
+      {{#if skills}}
+      <section style="break-inside: avoid; margin-bottom: 8mm;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">Compétences</div>
+        <div style="text-align: center;">
+          {{#each skills}}
+          <span style="display: inline-block; background: #34495e; color: white; padding: 2mm 4mm; margin: 1mm; border-radius: 16px; font-size: 9pt; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">{{this}}</span>
+          {{/each}}
+        </div>
+      </section>
+      {{/if}}
+      
+      {{#if languages}}
+      <section style="break-inside: avoid; margin-bottom: 8mm;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">Langues</div>
+        {{#each languages}}
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm; padding: 2mm; background: #f8f9fa; border-radius: 8px;">
+          <span style="font-family: 'Lora', serif; font-weight: 600; font-size: 10pt; color: #2c3e50; font-style: italic;">{{name}}</span>
+          <span style="font-size: 9pt; color: #34495e; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">{{level}}</span>
+        </div>
+        {{/each}}
+      </section>
+      {{/if}}
+      
+      {{#if projects}}
+      <section style="break-inside: avoid; margin-bottom: 8mm;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">Projets Remarquables</div>
+        {{#each projects}}
+        <div style="margin-bottom: 4mm; break-inside: avoid;">
+          <div style="font-family: 'Lora', serif; font-weight: 600; font-size: 10pt; color: #2c3e50; margin-bottom: 1mm; font-style: italic;">{{title}}{{#if link}} • <span style="color: #34495e; font-size: 9pt;">{{link}}</span>{{/if}}</div>
+          {{#if description}}<div style="font-size: 9pt; color: #2c3e50; line-height: 1.5;">{{description}}</div>{{/if}}
+        </div>
+        {{/each}}
+      </section>
+      {{/if}}
+      
+      {{#if references}}
+      <section style="break-inside: avoid;">
+        <div style="font-family: 'Lora', serif; font-size: 16pt; font-weight: 600; color: #2c3e50; margin-bottom: 4mm; font-style: italic; text-align: center; border-bottom: 1px solid #34495e; padding-bottom: 2mm;">Références</div>
+        {{#each references}}
+        <div style="margin-bottom: 4mm; padding: 3mm; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #34495e;">
+          <div style="font-family: 'Lora', serif; font-weight: 600; font-size: 10pt; color: #2c3e50; font-style: italic;">{{name}}</div>
+          <div style="font-size: 9pt; color: #34495e;">{{contact}} • {{relation}}</div>
+        </div>
+        {{/each}}
+      </section>
+      {{/if}}
+    </div>
+    
+    <!-- Decorative elements -->
+    <div style="position: absolute; bottom: 8mm; left: 50%; transform: translateX(-50%); width: 60mm; height: 1px; background: linear-gradient(90deg, transparent, #2c3e50, transparent);"></div>
+  </div>
+</div>

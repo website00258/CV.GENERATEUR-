@@ -1,0 +1,135 @@
+<div class="template-07" style="font-family: inherit">
+  <div class="cv-root" data-palette="{{meta.palette}}" style="background: #fafafa; min-height: 297mm; position: relative;">
+    <!-- Timeline Spine -->
+    <div style="position: absolute; left: 50mm; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent, #f59e0b) 0%, color-mix(in srgb, var(--accent, #f59e0b) 60%, #ef4444) 100%); z-index: 1;"></div>
+    
+    <!-- Header Section -->
+    <header style="background: white; margin: 0 15mm 8mm 15mm; padding: 8mm; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: relative; z-index: 2;">
+      <div style="text-align: center; position: relative;">
+        {{#if personal.photoBase64}}
+        <div style="margin-bottom: 6mm;">
+          <img src="{{personal.photoBase64}}" alt="Photo" style="width:50mm;height:50mm;object-fit:cover;border-radius:50%; border: 6px solid var(--accent, #f59e0b); box-shadow: 0 8px 32px rgba(0,0,0,0.2);" />
+        </div>
+        {{/if}}
+        
+        <div style="font-size: 24pt; font-weight: 900; color: #1a1a1a; margin-bottom: 2mm; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">{{personal.firstName}} {{personal.lastName}}</div>
+        <div style="font-size: 16pt; color: var(--accent, #f59e0b); font-weight: 600; margin-bottom: 6mm; text-transform: uppercase; letter-spacing: 2px;">{{personal.title}}</div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(60mm, 1fr)); gap: 4mm; font-size: 10pt; max-width: 120mm; margin: 0 auto;">
+          {{#if personal.email}}<div style="display: flex; align-items: center; justify-content: center; gap: 2mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); color: white; padding: 2mm; border-radius: 12px; font-weight: 600;"><span>📧</span> {{personal.email}}</div>{{/if}}
+          {{#if personal.phone}}<div style="display: flex; align-items: center; justify-content: center; gap: 2mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); color: white; padding: 2mm; border-radius: 12px; font-weight: 600;"><span>📱</span> {{personal.phone}}</div>{{/if}}
+          {{#if personal.location}}<div style="display: flex; align-items: center; justify-content: center; gap: 2mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); color: white; padding: 2mm; border-radius: 12px; font-weight: 600;"><span>📍</span> {{personal.location}}</div>{{/if}}
+          {{#if personal.website}}<div style="display: flex; align-items: center; justify-content: center; gap: 2mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); color: white; padding: 2mm; border-radius: 12px; font-weight: 600;"><span>🌐</span> Site Web</div>{{/if}}
+        </div>
+      </div>
+    </header>
+    
+    <!-- Timeline Content -->
+    <div style="padding: 0 15mm;">
+      {{#if summary}}
+      <!-- Profile Timeline Item -->
+      <div style="display: grid; grid-template-columns: 1fr 10mm 1fr; margin-bottom: 8mm; position: relative; z-index: 2;">
+        <div></div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <div style="width: 16mm; height: 16mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12pt; color: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 3; position: relative;">🎯</div>
+        </div>
+        <div style="background: white; padding: 6mm; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); border-left: 4px solid var(--accent, #f59e0b);">
+          <div style="color: var(--accent, #f59e0b); font-size: 14pt; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 1px;">PROFIL PROFESSIONNEL</div>
+          <p style="font-size: 11pt; line-height: 1.6; text-align: justify; margin: 0; color: #4a4a4a;">{{summary}}</p>
+        </div>
+      </div>
+      {{/if}}
+      
+      {{#if experience}}
+      <!-- Experience Timeline Items -->
+      {{#each experience}}
+      <div style="display: grid; grid-template-columns: 1fr 10mm 1fr; margin-bottom: 8mm; position: relative; z-index: 2;">
+        <div style="background: white; padding: 6mm; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); border-right: 4px solid var(--accent, #f59e0b); text-align: right;">
+          <div style="font-weight: 700; font-size: 12pt; color: #1a1a1a; margin-bottom: 1mm;">{{jobTitle}}</div>
+          <div style="font-weight: 600; color: var(--accent, #f59e0b); font-size: 11pt; margin-bottom: 1mm;">{{company}}{{#if location}} • {{location}}{{/if}}</div>
+          <div style="display: inline-block; font-size: 9pt; color: white; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); padding: 1mm 3mm; border-radius: 8px; font-weight: 600; margin-bottom: 2mm;">{{startDate}} – {{#if current}}Présent{{else}}{{endDate}}{{/if}}</div>
+          {{#if description}}<div style="font-size: 10pt; line-height: 1.5; text-align: justify; color: #4a4a4a;">{{description}}</div>{{/if}}
+        </div>
+        <div style="display: flex; justify-content: center; align-items: flex-start; padding-top: 6mm;">
+          <div style="width: 12mm; height: 12mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10pt; color: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 3; position: relative;">💼</div>
+        </div>
+        <div></div>
+      </div>
+      {{/each}}
+      {{/if}}
+      
+      {{#if education}}
+      <!-- Education Timeline Items -->
+      {{#each education}}
+      <div style="display: grid; grid-template-columns: 1fr 10mm 1fr; margin-bottom: 8mm; position: relative; z-index: 2;">
+        <div></div>
+        <div style="display: flex; justify-content: center; align-items: flex-start; padding-top: 6mm;">
+          <div style="width: 12mm; height: 12mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10pt; color: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 3; position: relative;">🎓</div>
+        </div>
+        <div style="background: white; padding: 6mm; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); border-left: 4px solid var(--accent, #f59e0b);">
+          <div style="font-weight: 700; font-size: 11pt; color: #1a1a1a; margin-bottom: 1mm;">{{degree}}</div>
+          <div style="color: var(--accent, #f59e0b); font-weight: 600; font-size: 10pt; margin-bottom: 1mm;">{{school}}{{#if location}} • {{location}}{{/if}}</div>
+          <div style="display: inline-block; font-size: 9pt; color: white; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); padding: 1mm 3mm; border-radius: 8px; font-weight: 600; margin-bottom: 2mm;">{{startDate}} – {{endDate}}</div>
+          {{#if description}}<div style="font-size: 10pt; margin-top: 2mm; color: #4a4a4a;">{{description}}</div>{{/if}}
+        </div>
+      </div>
+      {{/each}}
+      {{/if}}
+      
+      <!-- Skills and Languages Footer -->
+      <div style="display: grid; grid-template-columns: 1fr 10mm 1fr; margin-bottom: 8mm; position: relative; z-index: 2;">
+        {{#if skills}}
+        <div style="background: white; padding: 6mm; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); border-right: 4px solid var(--accent, #f59e0b);">
+          <div style="color: var(--accent, #f59e0b); font-size: 12pt; font-weight: 700; margin-bottom: 4mm; text-transform: uppercase; letter-spacing: 1px; text-align: right;">⚡ COMPÉTENCES</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 2mm; justify-content: flex-end;">
+            {{#each skills}}
+            <div style="background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); color: white; padding: 2mm 3mm; border-radius: 8px; font-size: 8pt; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">{{this}}</div>
+            {{/each}}
+          </div>
+        </div>
+        {{else}}
+        <div></div>
+        {{/if}}
+        
+        <div style="display: flex; justify-content: center; align-items: flex-start; padding-top: 6mm;">
+          <div style="width: 12mm; height: 12mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10pt; color: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 3; position: relative;">⭐</div>
+        </div>
+        
+        {{#if languages}}
+        <div style="background: white; padding: 6mm; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); border-left: 4px solid var(--accent, #f59e0b);">
+          <div style="color: var(--accent, #f59e0b); font-size: 12pt; font-weight: 700; margin-bottom: 4mm; text-transform: uppercase; letter-spacing: 1px;">🌍 LANGUES</div>
+          {{#each languages}}
+          <div style="margin-bottom: 3mm;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1mm;">
+              <span style="font-weight: 600; font-size: 10pt; color: #1a1a1a;">{{name}}</span>
+              <span style="font-size: 8pt; color: var(--accent, #f59e0b); font-weight: 600;">{{level}}</span>
+            </div>
+            <div style="background: #f3f4f6; height: 4px; border-radius: 2px; overflow: hidden;">
+              <div style="background: linear-gradient(90deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); height: 100%; width: 85%; border-radius: 2px;"></div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{else}}
+        <div></div>
+        {{/if}}
+      </div>
+      
+      {{#if projects}}
+      <!-- Projects Timeline Items -->
+      {{#each projects}}
+      <div style="display: grid; grid-template-columns: 1fr 10mm 1fr; margin-bottom: 8mm; position: relative; z-index: 2;">
+        <div style="background: white; padding: 6mm; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.1); border-right: 4px solid var(--accent, #f59e0b); text-align: right;">
+          <div style="font-weight: 600; font-size: 11pt; color: #1a1a1a; margin-bottom: 1mm;">{{title}}{{#if link}} • <span style="color: var(--accent, #f59e0b); font-size: 9pt;">{{link}}</span>{{/if}}</div>
+          {{#if description}}<div style="font-size: 10pt; text-align: justify; color: #4a4a4a;">{{description}}</div>{{/if}}
+        </div>
+        <div style="display: flex; justify-content: center; align-items: flex-start; padding-top: 6mm;">
+          <div style="width: 12mm; height: 12mm; background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 80%, #ef4444)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10pt; color: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 3; position: relative;">🚀</div>
+        </div>
+        <div></div>
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>

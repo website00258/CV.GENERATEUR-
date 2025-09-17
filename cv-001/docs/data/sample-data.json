@@ -1,0 +1,80 @@
+{
+  "meta": { 
+    "template": "template-03", 
+    "theme": "light", 
+    "lastSaved": "2025-09-17T11:00:00Z", 
+    "pageSize": "A4", 
+    "palette": "blue", 
+    "fontFamily": "Inter, system-ui, sans-serif" 
+  },
+  "personal": {
+    "firstName": "Issoufou",
+    "lastName": "Abdou Chefou",
+    "title": "Ingénieur Civil",
+    "email": "exemple@mail.com",
+    "phone": "+227 96 38 08 77",
+    "location": "Niamey, Niger",
+    "city": "Niamey",
+    "country": "Niger",
+    "website": "",
+    "linkedin": "",
+    "photoBase64": ""
+  },
+  "summary": "Ingénieur civil expérimenté spécialisé dans le calcul structurel et la conception de projets d'infrastructure. Maîtrise des outils de modélisation et de conception assistée par ordinateur. Passionné par l'innovation dans le secteur du BTP et le développement durable.",
+  "experience": [
+    {
+      "jobTitle": "Ingénieur projet",
+      "company": "BCP Groupe",
+      "location": "Niamey",
+      "startDate": "2023-05",
+      "endDate": "2024-10",
+      "current": false,
+      "description": "Gestion de projets d'infrastructure, calculs de structure, supervision de chantiers et coordination avec les équipes techniques."
+    }
+  ],
+  "education": [
+    { 
+      "degree": "Master Génie Civil", 
+      "institution": "Université Abdou Moumouni", 
+      "school": "Université Abdou Moumouni",
+      "location": "Niamey", 
+      "startDate": "2018", 
+      "endDate": "2023", 
+      "year": "2023",
+      "description": "Spécialisation en structures et matériaux de construction" 
+    }
+  ],
+  "skills": ["Calcul structurel", "Revit", "AutoCAD", "Flutter", "Béton armé", "Charpente métallique"],
+  "languages": [
+    {"name":"Français", "level":"Natif", "nom":"Français", "niveau":"Natif"},
+    {"name":"Hausa", "level":"Intermédiaire", "nom":"Hausa", "niveau":"Intermédiaire"},
+    {"name":"Anglais", "level":"Courant", "nom":"Anglais", "niveau":"Courant"}
+  ],
+  "certifications": [
+    {
+      "title":"BAEL Adapté", 
+      "issuer":"Autoformation", 
+      "year":"2024",
+      "nom":"BAEL Adapté",
+      "organisme":"Autoformation",
+      "date":"2024"
+    }
+  ],
+  "projects": [ 
+    {
+      "title": "Pont urbain", 
+      "description": "Étude et modélisation d'un pont urbain avec calculs de résistance et dimensionnement.", 
+      "link": "",
+      "nom": "Pont urbain",
+      "technologies": ["Revit", "AutoCAD", "Calcul manuel"]
+    } 
+  ],
+  "references": [ 
+    {
+      "name":"M. Directeur", 
+      "contact":"directeur@bcpgroupe.com", 
+      "relation":"Manager"
+    } 
+  ],
+  "customSections": []
+}

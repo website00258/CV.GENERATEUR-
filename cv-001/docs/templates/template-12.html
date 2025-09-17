@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 12 - Corporatif Professionnel</title>
+</head>
+<body>
+    <div class="cv-container template-12">
+        <!-- Header Corporatif avec lignes géométriques -->
+        <header class="cv-header">
+            <div class="header-decoration">
+                <div class="decoration-line line-1"></div>
+                <div class="decoration-line line-2"></div>
+                <div class="decoration-line line-3"></div>
+            </div>
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-photo">
+                        <div class="photo-border">
+                            <img src="{{photo}}" alt="Photo de profil" class="photo">
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="name">{{prenom}} {{nom}}</h1>
+                        <div class="title">{{poste}}</div>
+                        <div class="contact-info">
+                            <div class="contact-row">
+                                <span class="contact-item">{{email}}</span>
+                                <span class="contact-item">{{telephone}}</span>
+                            </div>
+                            <div class="contact-row">
+                                <span class="contact-item">{{ville}}, {{pays}}</span>
+                                {{#linkedin}}<span class="contact-item">LinkedIn: {{linkedin}}</span>{{/linkedin}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="executive-summary">
+            <div class="summary-content">
+                <h2 class="summary-title">Résumé Exécutif</h2>
+                <p class="summary-text">{{profil}}</p>
+            </div>
+        </section>
+
+        <!-- Main Content en deux colonnes -->
+        <main class="cv-main">
+            <!-- Left Column - Core Information -->
+            <div class="left-column">
+                <!-- Core Competencies -->
+                <section class="cv-section competencies">
+                    <h2 class="section-title">Compétences Clés</h2>
+                    <div class="section-content">
+                        <div class="competencies-grid">
+                            {{#competences}}
+                            <div class="competency-item">
+                                <div class="competency-header">
+                                    <span class="competency-name">{{nom}}</span>
+                                    <span class="competency-level">{{niveau}}/10</span>
+                                </div>
+                                <div class="competency-bar">
+                                    <div class="bar-fill" data-level="{{niveau}}"></div>
+                                </div>
+                            </div>
+                            {{/competences}}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Achievements -->
+                {{#realisations}}
+                <section class="cv-section achievements">
+                    <h2 class="section-title">Réalisations Clés</h2>
+                    <div class="section-content">
+                        <div class="achievements-list">
+                            {{#realisations}}
+                            <div class="achievement-item">
+                                <div class="achievement-icon">★</div>
+                                <div class="achievement-text">{{.}}</div>
+                            </div>
+                            {{/realisations}}
+                        </div>
+                    </div>
+                </section>
+                {{/realisations}}
+
+                <!-- Languages & Certifications -->
+                <section class="cv-section languages">
+                    <h2 class="section-title">Langues</h2>
+                    <div class="section-content">
+                        <div class="languages-professional">
+                            {{#langues}}
+                            <div class="language-item">
+                                <span class="language-name">{{nom}}</span>
+                                <div class="language-proficiency">
+                                    <div class="proficiency-bar">
+                                        <div class="proficiency-fill" data-level="{{niveau}}"></div>
+                                    </div>
+                                    <span class="proficiency-label">{{niveau}}</span>
+                                </div>
+                            </div>
+                            {{/langues}}
+                        </div>
+                    </div>
+                </section>
+
+                {{#certifications}}
+                <section class="cv-section certifications">
+                    <h2 class="section-title">Certifications</h2>
+                    <div class="section-content">
+                        <div class="certifications-professional">
+                            {{#certifications}}
+                            <div class="cert-item">
+                                <div class="cert-badge-pro">
+                                    <div class="cert-name">{{nom}}</div>
+                                    <div class="cert-details">
+                                        <span class="cert-org">{{organisme}}</span>
+                                        <span class="cert-date">{{date}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/certifications}}
+                        </div>
+                    </div>
+                </section>
+                {{/certifications}}
+            </div>
+
+            <!-- Right Column - Professional Experience -->
+            <div class="right-column">
+                <!-- Professional Experience -->
+                <section class="cv-section experience">
+                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    <div class="section-content">
+                        <div class="experience-professional">
+                            {{#experiences}}
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="position-info">
+                                        <h3 class="job-title">{{poste}}</h3>
+                                        <div class="company-info">
+                                            <span class="company">{{entreprise}}</span>
+                                            <span class="location">{{lieu}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="period-badge">
+                                        {{dateDebut}} - {{dateFin}}
+                                    </div>
+                                </div>
+                                <div class="experience-content">
+                                    <p class="job-description">{{description}}</p>
+                                    {{#realisations}}
+                                    <div class="accomplishments">
+                                        <h4 class="accomplishments-title">Réalisations principales :</h4>
+                                        <ul class="accomplishments-list">
+                                            {{#realisations}}
+                                            <li>{{.}}</li>
+                                            {{/realisations}}
+                                        </ul>
+                                    </div>
+                                    {{/realisations}}
+                                </div>
+                            </div>
+                            {{/experiences}}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="cv-section education">
+                    <h2 class="section-title">Formation Académique</h2>
+                    <div class="section-content">
+                        <div class="education-professional">
+                            {{#formations}}
+                            <div class="education-item">
+                                <div class="education-header">
+                                    <div class="degree-info">
+                                        <h3 class="degree">{{diplome}}</h3>
+                                        <div class="institution">{{etablissement}}</div>
+                                    </div>
+                                    <div class="year-badge">{{annee}}</div>
+                                </div>
+                                {{#description}}
+                                <div class="education-details">
+                                    <p>{{description}}</p>
+                                </div>
+                                {{/description}}
+                            </div>
+                            {{/formations}}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Strategic Projects -->
+                {{#projets}}
+                <section class="cv-section projects">
+                    <h2 class="section-title">Projets Stratégiques</h2>
+                    <div class="section-content">
+                        <div class="projects-professional">
+                            {{#projets}}
+                            <div class="project-item">
+                                <div class="project-header">
+                                    <h3 class="project-name">{{nom}}</h3>
+                                    <div class="project-type">Projet {{type}}</div>
+                                </div>
+                                <div class="project-content">
+                                    <p class="project-description">{{description}}</p>
+                                    <div class="technologies-used">
+                                        <strong>Technologies :</strong>
+                                        <div class="tech-tags-pro">
+                                            {{#technologies}}
+                                            <span class="tech-tag-pro">{{.}}</span>
+                                            {{/technologies}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/projets}}
+                        </div>
+                    </div>
+                </section>
+                {{/projets}}
+            </div>
+        </main>
+
+        <!-- Footer with Professional Quote -->
+        <footer class="cv-footer">
+            <div class="footer-content">
+                <div class="professional-quote">
+                    <em>"Excellence, Innovation et Leadership dans chaque projet"</em>
+                </div>
+                <div class="footer-decoration">
+                    <div class="decoration-line line-footer"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
